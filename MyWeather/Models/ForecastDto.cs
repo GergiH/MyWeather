@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MyWeather.Models
 {
-	public class ForecastDto
-	{
-		[JsonProperty("data")]
-		public List<Forecast> Forecasts { get; set; }
-	}
+    public class ForecastDto
+    {
+        [JsonProperty("data")]
+        public List<Forecast> Forecasts { get; set; }
+    }
 }

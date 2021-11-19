@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MyWeather.Data
 {
-	public class ApplicationUser : IdentityUser<int>
-	{
-		public List<UserCity> UserCities { get; set; }
-	}
+    public class ApplicationUser : IdentityUser<int>
+    {
+        public List<UserCity> UserCities { get; set; }
+    }
 }

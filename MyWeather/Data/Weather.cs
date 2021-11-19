@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MyWeather.Data
 {
-	public class Weather
-	{
-		public string Code { get; set; }
-		public string Icon { get; set; }
-		public string Description { get; set; }
-		public string ValidDate { get; set; }
-		public int CityId { get; set; }
-	}
+    public class Weather
+    {
+        public string Code { get; set; }
+        public string Icon { get; set; }
+        public string Description { get; set; }
+        public string ValidDate { get; set; }
+        public int CityId { get; set; }
+    }
 }

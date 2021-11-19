@@ -141,7 +141,6 @@ namespace MyWeather.Repositories
 
                         forecastDto.Forecasts = forecastDto.Forecasts.OrderBy(f => DateTime.ParseExact(f.ValidDate, "yyyy-MM-dd", CultureInfo.InvariantCulture)).ToList();
 
-                        
                         foreach (Forecast fc in forecastDto.Forecasts)
                         {
                             Forecast fcInDb = await _context.Forecasts

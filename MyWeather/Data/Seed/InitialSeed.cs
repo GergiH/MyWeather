@@ -35,14 +35,14 @@ namespace MyWeather.Data.Seed
                     {
                         IEnumerable<City> records = csv.GetRecords<City>();
                         if (addAll)
-						{
+                        {
                             context.Cities.AddRange(records);
                         }
-						else
+                        else
                         {
                             context.Cities.AddRange(records.Take(maxRecordCount));
                         }
-                        
+
                     }
                 }
 
