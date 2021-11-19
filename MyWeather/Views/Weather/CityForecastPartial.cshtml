@@ -1,0 +1,51 @@
+﻿@model CityForecast
+
+<div class="form-group">
+    <hr />
+    <h1 class="d-inline-block">@(Model.IsFavourite ? "*" : "")@Model.CityName</h1>
+
+    @Html.ActionLink("Change", "UpdateCityForecast", new { cityToUpdate = Model.CityId }, new { @class = "btn btn-primary d-inline-block align-top" })
+
+    <div class="float-right d-d-inline-block">
+        @Html.ActionLink("Delete", "DeleteCityForecast", new { cityToDelete = Model.CityId }, new { @class = "btn btn-danger" })
+        @if (Model.IsFavourite)
+        {
+            @Html.ActionLink("Un-favourite", "FavouriteCityForecast", new { cityToFavourite = Model.CityId }, new { @class = "btn btn-secondary" })
+        }
+        else
+        {
+            @Html.ActionLink("Favourite", "FavouriteCityForecast", new { cityToFavourite = Model.CityId }, new { @class = "btn btn-warning" })
+        }
+    </div>
+</div>
+
+@if (Model.ForecastDisplays == null || Model.ForecastDisplays.Count == 0)
+{
+    <hr />
+    <h3>There are no forecasts available for: @Model.CityName</h3>
+}
+else
+{
+    <div class="row mb-4">
+        @for (int i = 0; i < 4; i++)
+        {
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>@Model.ForecastDisplays[i].WeatherDate.ToString("yyyy-MM-dd")</h3>
+                        <h5>@Model.ForecastDisplays[i].Description</h5>
+                        <hr />
+                        <ul>
+                            <li>Average temp.: @Model.ForecastDisplays[i].AvgTemp</li>
+                            <li>Max temp.: @Model.ForecastDisplays[i].MaxTemp</li>
+                            <li>Min temp.: @Model.ForecastDisplays[i].MinTemp</li>
+                            <li>Precip.: @Model.ForecastDisplays[i].PrecProbability%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+

@@ -1,0 +1,35 @@
+﻿@using MyWeather.Data
+@model ForecastViewModel
+
+@* Html.HiddenFor helper didn't want to work, thus why constructing these manually... *@
+@* Currently these are not really used, but could be by AJAX calls if needed *@
+@for (int i = 0; i < Model.UserCities.Count; i++)
+{
+    <input type="hidden" id="UserCities_@(i)__CityId" name="UserCities[@(i)].CityId" value="@Model.UserCities[i].CityId" />
+    <input type="hidden" id="UserCities_@(i)__UserId" name="UserCities[@(i)].UserId" value="@Model.UserCities[i].UserId" />
+    <input type="hidden" id="UserCities_@(i)__IsFavourite" name="UserCities[@(i)].IsFavourite" value="@Model.UserCities[i].IsFavourite" />
+    <input type="hidden" id="UserCities_@(i)__City__CityId" name="UserCities[@(i)].City.CityId" value="@Model.UserCities[i].City.CityId" />
+    <input type="hidden" id="UserCities_@(i)__City__CityName" name="UserCities[@(i)].City.CityName" value="@Model.UserCities[i].City.CityName" />
+    <input type="hidden" id="UserCities_@(i)__City__Latitude" name="UserCities[@(i)].City.Latitude" value="@Model.UserCities[i].City.Latitude" />
+    <input type="hidden" id="UserCities_@(i)__City__Longitude" name="UserCities[@(i)].City.Longitude" value="@Model.UserCities[i].City.Longitude" />
+}
+
+@for (int i = 0; i < Model.CityForecasts.Count; i++)
+{
+    <input type="hidden" id="CityForecasts_@(i)__CityName" name="CityForecasts[@(i)].CityName" value="@Model.CityForecasts[i].CityName" />
+
+    for (int j = 0; j < Model.CityForecasts[i].ForecastDisplays.Count; j++)
+    {
+        <input type="hidden" id="CityForecasts_@(i)__ForecastDisplays_@(j)__WeatherDate" name="CityForecasts[@(i)].ForecastDisplays[@(j)].WeatherDate" value="@Model.CityForecasts[i].ForecastDisplays[j].WeatherDate" />
+        <input type="hidden" id="CityForecasts_@(i)__ForecastDisplays_@(j)__AvgTemp" name="CityForecasts[@(i)].ForecastDisplays[@(j)].AvgTemp" value="@Model.CityForecasts[i].ForecastDisplays[j].AvgTemp" />
+        <input type="hidden" id="CityForecasts_@(i)__ForecastDisplays_@(j)__MaxTemp" name="CityForecasts[@(i)].ForecastDisplays[@(j)].MaxTemp" value="@Model.CityForecasts[i].ForecastDisplays[j].MaxTemp" />
+        <input type="hidden" id="CityForecasts_@(i)__ForecastDisplays_@(j)__MinTemp" name="CityForecasts[@(i)].ForecastDisplays[@(j)].MinTemp" value="@Model.CityForecasts[i].ForecastDisplays[j].MinTemp" />
+        <input type="hidden" id="CityForecasts_@(i)__ForecastDisplays_@(j)__Description" name="CityForecasts[@(i)].ForecastDisplays[@(j)].Description" value="@Model.CityForecasts[i].ForecastDisplays[j].Description" />
+        <input type="hidden" id="CityForecasts_@(i)__ForecastDisplays_@(j)__PrecProbability" name="CityForecasts[@(i)].ForecastDisplays[@(j)].PrecProbability" value="@Model.CityForecasts[i].ForecastDisplays[j].PrecProbability" />
+    }
+}
+
+@foreach (CityForecast forecast in Model.CityForecasts)
+{
+    await Html.RenderPartialAsync("CityForecastPartial", forecast);
+}

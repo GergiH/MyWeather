@@ -1,0 +1,10 @@
+﻿@using MyWeather.Data
+@model UserCity
+
+<h2>Are you sure you want to remove: @Model.City.CityName ?</h2>
+
+<form method="post" asp-controller="Weather" asp-action="DeleteCityForecastConfirmed">
+    @Html.HiddenFor(m => m.CityId)
+    <button type="submit" class="btn btn-danger">Remove - @Model.City.CityName</button>
+    <a class="btn btn-secondary" asp-controller="Weather" asp-action="Index">Cancel</a>
+</form>

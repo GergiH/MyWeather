@@ -1,0 +1,13 @@
+﻿@using MyWeather.Data
+@model UserCity
+
+<h3>Select a City to change @Model.City.CityName to.</h3>
+
+<form method="post" asp-controller="Weather" asp-action="UpdateCityForecastConfirmed">
+    <div class="form-group">
+        @Html.DropDownList("newCityId", (List<SelectListItem>)ViewData["CityList"], new { @class = "form-control" })
+        @Html.HiddenFor(m => m.CityId)
+    </div>
+    <button type="submit" class="btn btn-primary">Update - @Model.City.CityName</button>
+    <a class="btn btn-secondary" asp-controller="Weather" asp-action="Index">Cancel</a>
+</form>

@@ -1,0 +1,11 @@
+﻿@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Confirm email";
+}
+
+<h1>@Model.StatusMessage</h1>
+@if (Model.IsSuccess)
+{
+    <h2>Please log in with your registered user.</h2>
+}

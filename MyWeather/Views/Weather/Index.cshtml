@@ -1,0 +1,31 @@
+﻿@using MyWeather.Data
+@model ForecastViewModel
+
+@{
+    ViewData["Title"] = "Weather";
+}
+
+<form method="post" asp-controller="Weather" asp-action="AddCityForecast">
+    @* Need to add these in hidden so they get posted on submit *@
+    @for (int i = 0; i < Model.CityList.Count; i++)
+    {
+        @Html.HiddenFor(m => m.CityList[i].Value)
+        @Html.HiddenFor(m => m.CityList[i].Text)
+    }
+
+    <div class="col-md-8 offset-md-2 mb-3">
+        <h4>Select a City</h4>
+        <div class="input-group">
+            @Html.DropDownListFor(m => m.SelectedCityId, Model.CityList, new { @class = "form-control" })
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary" id="AddCity">Add City</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="ForecastContainer">
+        @{
+            await Html.RenderPartialAsync("ForecastsPartial", Model);
+        }
+    </div>
+</form>

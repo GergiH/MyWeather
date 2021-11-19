@@ -1,0 +1,14 @@
+﻿@using MyWeather.Data
+@model UserCity
+
+<h2>Are you sure you want to @(Model.IsFavourite ? "un-favourite": "favourite"): @Model.City.CityName ?</h2>
+
+<form method="post" asp-controller="Weather" asp-action="FavouriteCityForecastConfirmed">
+    @Html.HiddenFor(m => m.CityId)
+    @Html.HiddenFor(m => m.IsFavourite)
+
+    <button type="submit" class="btn btn-warning">
+        @(Model.IsFavourite ? "Un-favourite": "Favourite") - @Model.City.CityName
+    </button>
+    <a class="btn btn-secondary" asp-controller="Weather" asp-action="Index">Cancel</a>
+</form>
