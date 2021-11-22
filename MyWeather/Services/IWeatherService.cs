@@ -1,5 +1,5 @@
-﻿using MyWeather.Data;
-using MyWeather.Models;
+﻿using MyWeather.Models;
+using MyWeatherData.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using MyWeather.Data;
+using MyWeatherData.Entities;
 
 namespace MyWeather.Areas.Identity.Pages.Account
 {

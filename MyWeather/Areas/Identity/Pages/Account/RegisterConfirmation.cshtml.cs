@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using MyWeather.Data;
+using MyWeatherData.Entities;
 
 namespace MyWeather.Areas.Identity.Pages.Account
 {

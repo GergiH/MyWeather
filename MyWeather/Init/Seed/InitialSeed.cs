@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using MyWeatherData;
+using MyWeatherData.Entities;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -10,7 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyWeather.Data.Seed
+namespace MyWeather.Init.Seed
 {
     public class InitialSeed
     {
@@ -24,7 +26,7 @@ namespace MyWeather.Data.Seed
                 int maxRecordCount = 100;
 
                 bool doesSeed = false;
-                string basePath = "Data\\Seed\\WeatherBitData\\";
+                string basePath = "Init\\Seed\\WeatherBitData\\";
 
                 if (!context.Cities.Any())
                 {

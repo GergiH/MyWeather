@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
-using MyWeather.Data;
+using MyWeatherData.Entities;
 
 namespace MyWeather.Areas.Identity.Pages.Account
 {

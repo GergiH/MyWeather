@@ -4,8 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MyWeatherData.Entities;
 
-namespace MyWeather.Data
+namespace MyWeatherData
 {
     public class MyWeatherDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
     {

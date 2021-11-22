@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using MyWeather.Data;
 using MyWeather.Models;
+using MyWeatherData;
+using MyWeatherData.Entities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

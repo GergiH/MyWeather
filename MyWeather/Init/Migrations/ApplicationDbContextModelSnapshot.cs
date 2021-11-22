@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MyWeather.Data;
+using MyWeatherData;
 using System;
 
-namespace MyWeather.Data.Migrations
+namespace MyWeather.Init.Migrations
 {
     [DbContext(typeof(MyWeatherDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot

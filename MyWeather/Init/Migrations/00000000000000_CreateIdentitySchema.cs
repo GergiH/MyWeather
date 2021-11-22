@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace MyWeather.Data.Migrations
+namespace MyWeather.Init.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

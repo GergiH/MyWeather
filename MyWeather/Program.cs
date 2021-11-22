@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using MyWeather.Data.Seed;
+using MyWeather.Init.Seed;
 using System;
 using System.Collections.Generic;
 using System.Linq;

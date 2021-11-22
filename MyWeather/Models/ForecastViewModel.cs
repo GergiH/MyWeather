@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using MyWeather.Data;
+using MyWeatherData.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

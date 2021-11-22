@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
-using MyWeather.Data;
 using MyWeather.Models;
 using MyWeather.Repositories;
+using MyWeatherData.Entities;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
