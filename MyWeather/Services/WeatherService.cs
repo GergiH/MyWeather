@@ -71,7 +71,7 @@ namespace MyWeather.Services
                         AvgTemp = fc.Temp,
                         MaxTemp = fc.MaxTemp,
                         MinTemp = fc.MinTemp,
-                        Description = fc.Weather.Description,
+                        Description = fc.Weather?.Description ?? "",
                         PrecProbability = fc.Pop,
                         WeatherDate = DateTime.ParseExact(fc.ValidDate, "yyyy-MM-dd", CultureInfo.InvariantCulture)
                     });
