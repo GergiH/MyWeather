@@ -12,7 +12,8 @@ using System.Threading.Tasks;
 
 namespace MyWeather.Controllers
 {
-    [Authorize]  // Could use [Authorize] per function if needed, but here we just tie everything related to Weather
+    // Could use [Authorize] per function if needed, but here we just need authorization for everything related to Weather
+    [Authorize]
     public class WeatherController : Controller
     {
         private IWeatherService _service;
@@ -26,6 +27,10 @@ namespace MyWeather.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Main page of the Weather pages, shows the list of followed cities of the user
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Index()
         {
             ApplicationUser user = await _userManager.GetUserAsync(HttpContext.User);
@@ -36,6 +41,11 @@ namespace MyWeather.Controllers
             return View(fcViewModel);
         }
 
+        /// <summary>
+        /// Handles of adding a new city to the user's followed cities
+        /// </summary>
+        /// <param name="fcViewModel"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> AddCityForecast([FromForm] ForecastViewModel fcViewModel)
         {
@@ -56,6 +66,11 @@ namespace MyWeather.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Handles of changing a city's favourite status (favourite <-> un-favourite) [GET]
+        /// </summary>
+        /// <param name="cityToFavourite"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> FavouriteCityForecast(int cityToFavourite)
         {
@@ -65,6 +80,11 @@ namespace MyWeather.Controllers
             return View(userCity);
         }
 
+        /// <summary>
+        /// Handles of changing a city's favourite status (favourite <-> un-favourite) [POST]
+        /// </summary>
+        /// <param name="userCity"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> FavouriteCityForecastConfirmed(UserCity userCity)
         {
@@ -75,6 +95,11 @@ namespace MyWeather.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Handles of changing an already saved city of the user [GET]
+        /// </summary>
+        /// <param name="cityToUpdate"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> UpdateCityForecast(int cityToUpdate)
         {
@@ -86,6 +111,12 @@ namespace MyWeather.Controllers
             return View(userCity);
         }
 
+        /// <summary>
+        /// Handles of changing an already saved city of the user [POST]
+        /// </summary>
+        /// <param name="userCity"></param>
+        /// <param name="newCityId"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> UpdateCityForecastConfirmed(UserCity userCity, int newCityId)
         {
@@ -95,6 +126,11 @@ namespace MyWeather.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Handles of deleting a city of the user's saved cities [GET]
+        /// </summary>
+        /// <param name="cityToDelete"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> DeleteCityForecast(int cityToDelete)
         {
@@ -104,6 +140,11 @@ namespace MyWeather.Controllers
             return View(userCity);
         }
 
+        /// <summary>
+        /// Handles of deleting a city of the user's saved cities [POST]
+        /// </summary>
+        /// <param name="userCity"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> DeleteCityForecastConfirmed(UserCity userCity)
         {
@@ -113,6 +154,12 @@ namespace MyWeather.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Fills all the necessary lists that are needed for the ForecastViewModel
+        /// </summary>
+        /// <param name="fcViewModel"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public async Task<ForecastViewModel> HandleForecastVMLists(ForecastViewModel fcViewModel, ApplicationUser user)
         {
             fcViewModel.CityList = new(await Globals.GetCitySelectListAsync(_context));
